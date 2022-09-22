@@ -48,4 +48,15 @@
         android:textSize="34sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonSumar" />
+
+    <Button
+        android:id="@+id/buttonRestar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="138dp"
+        android:layout_marginEnd="138dp"
+        android:text="Restar"
+        app:layout_constraintBaseline_toBaselineOf="@+id/buttonSumar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/editTextNumber2" />
 </androidx.constraintlayout.widget.ConstraintLayout>
