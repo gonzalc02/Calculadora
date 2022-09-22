@@ -10,10 +10,10 @@
         android:id="@+id/editTextNumber1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="42dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="51dp"
         android:ems="10"
         android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -21,29 +21,29 @@
         android:id="@+id/editTextNumber2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="19dp"
         android:ems="10"
         android:inputType="number"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/editTextNumber1"
         app:layout_constraintTop_toBottomOf="@+id/editTextNumber1" />
 
     <Button
         android:id="@+id/buttonSumar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="42dp"
-        android:layout_marginTop="49dp"
+        android:layout_marginEnd="16dp"
         android:text="Sumar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumber2" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/buttonMultiplicar"
+        app:layout_constraintEnd_toStartOf="@+id/buttonMultiplicar"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textViewResultado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="84dp"
+        android:layout_marginStart="136dp"
+        android:layout_marginTop="120dp"
         android:text="TextView"
         android:textSize="34sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -53,10 +53,30 @@
         android:id="@+id/buttonRestar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="138dp"
-        android:layout_marginEnd="138dp"
+        android:layout_marginEnd="1dp"
         android:text="Restar"
-        app:layout_constraintBaseline_toBaselineOf="@+id/buttonSumar"
+        app:layout_constraintBaseline_toBaselineOf="@+id/buttonMultiplicar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/editTextNumber2" />
+        app:layout_constraintStart_toEndOf="@+id/buttonMultiplicar" />
+
+    <Button
+        android:id="@+id/buttonMultiplicar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="9dp"
+        android:text="Multiplicar"
+        app:layout_constraintEnd_toStartOf="@+id/buttonRestar"
+        app:layout_constraintStart_toEndOf="@+id/buttonSumar"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNumber2" />
+
+    <Button
+        android:id="@+id/buttonDividir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:text="Dividir"
+        app:layout_constraintStart_toStartOf="@+id/buttonMultiplicar"
+        app:layout_constraintTop_toBottomOf="@+id/buttonMultiplicar" />
 </androidx.constraintlayout.widget.ConstraintLayout>

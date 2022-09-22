@@ -2,6 +2,7 @@ package com.example.sumardosnumeros22_23;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -12,7 +13,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     EditText n1, n2;
-    Button bSumar, bRestar;
+    Button bSumar, bRestar, bMultiplicar, bDividir;
     TextView resultado;
     final String ETIQUETA = "CALCULADORA";
 
@@ -34,18 +35,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Log.i(ETIQUETA, "Se mete en OnStop");
     }
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        /*             VARIABLES            */
         n1 = findViewById(R.id.editTextNumber1);
         n1.setText("0");
+
         n2 = findViewById(R.id.editTextNumber2);
         n2.setText("0");
+
         bSumar = findViewById(R.id.buttonSumar);
+        bRestar = findViewById(R.id.buttonRestar);
+        bMultiplicar = findViewById(R.id.buttonMultiplicar);
+        bDividir = findViewById(R.id.buttonDividir);
+
         resultado = findViewById(R.id.textViewResultado);
         resultado.setText("0");
-        bRestar = findViewById(R.id.buttonRestar);
+
 
         /*
         bSumar.setOnClickListener(new View.OnClickListener() {
@@ -77,7 +87,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 */
         bRestar.setOnClickListener(this);
         bSumar.setOnClickListener(this);
-
+        bMultiplicar.setOnClickListener(this);
+        bDividir.setOnClickListener(this);
 
     }
 
@@ -86,6 +97,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int num1 = Integer.parseInt(n1.getText().toString());
         int num2 = Integer.parseInt(n2.getText().toString());
         int resultadoOperacion = 0;
+
         switch (view.getId()) {
             case R.id.buttonSumar:
                 resultadoOperacion = num1 + num2;
@@ -93,7 +105,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.buttonRestar:
                 resultadoOperacion = num1 - num2;
                 break;
-
+            case R.id.buttonMultiplicar:
+                resultadoOperacion = num1 * num2;
+                break;
+            case R.id.buttonDividir:
+                try {
+                    resultadoOperacion = num1 / num2;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                break;
         }
         resultado.setText(""+resultadoOperacion);
 
