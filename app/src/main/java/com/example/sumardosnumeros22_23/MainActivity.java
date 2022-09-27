@@ -1,11 +1,13 @@
 package com.example.sumardosnumeros22_23;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -94,9 +96,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        int num1 = Integer.parseInt(n1.getText().toString());
-        int num2 = Integer.parseInt(n2.getText().toString());
-        int resultadoOperacion = 0;
+        float num1 = Integer.parseInt(n1.getText().toString());
+        float num2 = Integer.parseInt(n2.getText().toString());
+        float resultadoOperacion = 0;
+        boolean bien = true;
 
         switch (view.getId()) {
             case R.id.buttonSumar:
@@ -109,14 +112,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 resultadoOperacion = num1 * num2;
                 break;
             case R.id.buttonDividir:
-                try {
+                try{
                     resultadoOperacion = num1 / num2;
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                break;
+                }catch (ArithmeticException e){}
         }
-        resultado.setText(""+resultadoOperacion);
+        if(bien){
+            resultado.setText(""+resultadoOperacion);
+        }
+
 
     }
 }
